@@ -19,7 +19,7 @@ export default {
     SideMenu,
     // DateCalendar,
     DetailTab,
-},
+  },
 };
 </script>
 
