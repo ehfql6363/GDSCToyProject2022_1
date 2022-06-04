@@ -1,8 +1,8 @@
 <template>
   <div class="about" id="horizen">
     <div>
-      <date-calendar></date-calendar>
-      <!-- <date-cal></date-cal> -->
+      <!-- <date-calendar></date-calendar> -->
+      <detail-tab></detail-tab>
       <side-menu></side-menu>
     </div>
   </div>
@@ -10,15 +10,15 @@
 
 <script>
 import SideMenu from '@/components/static/SideMenu.vue'
-// import DateCal from '@/components/addPlan/DateCal.vue';
-import DateCalendar from '@/components/addPlan/DateCalendar.vue'
+// import DateCalendar from '@/components/addPlan/DateCalendar.vue'
+import DetailTab from '@/components/addPlan/DetailTab.vue';
 
 export default {
   name : 'AboutView', //출처 이름
   components: {
     SideMenu,
-    // DateCal,
-    DateCalendar,
+    // DateCalendar,
+    DetailTab,
 },
 };
 </script>
