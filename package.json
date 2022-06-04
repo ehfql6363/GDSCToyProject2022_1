@@ -9,6 +9,8 @@
   },
   "dependencies": {
     "@vue/cli": "^5.0.4",
+    "bootstrap": "^4.6.1",
+    "bootstrap-vue": "^2.22.0",
     "core-js": "^3.8.3",
     "v-calendar": "^2.4.1",
     "vue": "^2.6.14",
