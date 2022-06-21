@@ -13,12 +13,15 @@
 
         <b-card no-body class="mb-1">
         <b-card-header header-tag="header" class="p-1" role="tab">
-            <b-button block v-b-toggle.accordion-2 variant="info">날짜 선택</b-button>
+            <b-button block v-b-toggle.accordion-2 variant="info" v-if="date === ''">날짜 선택</b-button>
+            <b-button style="width: 100%" block v-b-toggle.accordion-2 variant="info" v-else-if="date === null">날짜 선택</b-button>
+            <b-button style="width: 100%" block v-b-toggle.accordion-2 variant="info" v-else>{{date}}</b-button>
+            <!-- <b-button style="width: 100%" block v-b-toggle.accordion-2 variant="info">날짜 선택{{date}}</b-button> -->
         </b-card-header>
         <b-collapse id="accordion-2" accordion="my-accordion" role="tabpanel">
             <b-card-body>
                 <div class="section text-center">
-                    <h2 class="h2" style = "object-fit: cover;">일정 정하기</h2>
+                    <h2 class="h2" style = "object-fit: cover;">날짜 정하기</h2>
                     <div class="flex flex-col items-center mb-6" style = "object-fit: cover;">
                         <v-date-picker
                             trim-weeks 
@@ -38,6 +41,7 @@
         <b-card no-body class="mb-1">
         <b-card-header header-tag="header" class="p-1" role="tab">
             <b-button block v-b-toggle.accordion-3 variant="info">일정 세부사항</b-button>
+            <div>{{title}}</div>
         </b-card-header>
         <b-collapse id="accordion-3" accordion="my-accordion" role="tabpanel">
             <b-card-body>
@@ -100,7 +104,7 @@
                     {name:'공부 아이콘', src:require('@/assets/logo.png')}
                 ],
                 memo:'',
-                date:"",
+                date:'',
                 timezone: '',
                 slide: 0,
                 sliding: null
