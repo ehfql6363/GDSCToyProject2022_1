@@ -98,10 +98,10 @@
                 img: '',
                 icons:[
                     {name:'음식 아이콘', src:require('@/assets/img/food.png')},
-                    {name:'게임 아이콘', src:require('@/assets/img/game.jpg')},
-                    {name:'데이트 아이콘', src:require('@/assets/logo.png')},
-                    {name:'파티 아이콘', src:require('@/assets/logo.png')},
-                    {name:'공부 아이콘', src:require('@/assets/logo.png')}
+                    {name:'오락 아이콘', src:require('@/assets/img/game.png')},
+                    {name:'데이트 아이콘', src:require('@/assets/img/date.png')},
+                    {name:'파티 아이콘', src:require('@/assets/img/party.png')},
+                    {name:'공부 아이콘', src:require('@/assets/img/study.png')}
                 ],
                 memo:'',
                 date:'',
