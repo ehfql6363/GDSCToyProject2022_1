@@ -16,8 +16,8 @@
     <div>
       <div>
         <b-card
-          title="Card Title"
-          img-src="https://picsum.photos/600/300/?image=25"
+          title="일정 제목"
+          img-src='@/assets/img/food.png'
           img-alt="Image"
           img-top
           tag="article"
@@ -25,10 +25,10 @@
           class="mb-2"
         >
           <b-card-text>
-            Some quick example text to build on the card title and make up the bulk of the card's content.
+            일정 내용?
           </b-card-text>
 
-          <b-button href="#" variant="primary">Go somewhere</b-button>
+          <b-button href="#" variant="primary">자세히 보기</b-button>
         </b-card>
 </div>
     </div>
@@ -45,15 +45,15 @@ export default {
     }
   },
   methods: {
-    searchresultshow(keyword) {
+    searchPlan(keyword) {
       if (keyword !== ''){ //검색어를 입력한 경우
-        this.$router.push({
-          name: "SearchPage",
-          params: {
-            keyword: this.keyword,
-            isResultShow: true,
-          },
-        });
+        // this.$router.push({
+        //   name: "SearchPage",
+        //   params: {
+        //     keyword: this.keyword,
+        //     isResultShow: true,
+        //   },
+        // });
         this.keyword = ''
         console.log('"',keyword,'"' + ' 검색')
       } else {
@@ -66,18 +66,5 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+
 </style>
