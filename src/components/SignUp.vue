@@ -1,61 +1,70 @@
-<!-- src/components/SignupForm.vue -->
 <template>
-  <!-- @submit = v-on:submit -->
-  <!-- prevent: 새로고침 방지 -->
-  <form @submit.prevent="submitForm">
-    <div>
-      <label for="username">id: </label>
-      <!-- v-model: data 속성과 연결 -->
-      <input id="username" type="text" v-model="username" />
-    </div>
-    <div>
-      <label for="password">pw: </label>
-      <input id="password" type="text" v-model="password" />
-    </div>
-    <div>
-      <label for="nickname">nickname: </label>
-      <input id="nickname" type="text" v-model="nickname" />
-    </div>
-    <button type="submit">회원 가입</button>
-    <!-- 결과 메시지 출력 -->
-    <p>{{ logMessage }}</p>
-  </form>
+	<div class="container">
+		<form @submit.prevent="submitForm">
+			<div>
+				<label for="email">이름 : </label>
+				<input type="text" id="email" v-model="email" />
+			</div>
+			<div>
+				<label for="name">아이디 : </label>
+				<input type="text" id="name" v-model="name" />
+			</div>
+			<div>
+				<label for="password">비밀번호 : </label>
+				<input type="password" id="password" v-model="password" />
+			</div>
+			<div>
+				<label for="passwordConfirm">비밀번호 확인 : </label>
+				<input type="password" id="passwordConfirm" v-model="passwordConfirm" />
+			</div>
+			<div>
+				<button type="submit">회원가입</button>
+				<button type = "button" @click="goBack" >취소</button>
+			</div>
+			
+		</form>
+	</div>
 </template>
- 
+
 <script>
-import { registerUser } from '@/api/index';
- 
 export default {
-  data() {
-    return {
-      // form
-      username: '',
-      password: '',
-      nickname: '',
-      // log
-      logMessage: '',
-    };
-  },
-  methods: {
-    async submitForm() {
-      // API 요청시 전달할 userData 객체
-      const userData = {
-        username: this.username,
-        password: this.password,
-        nickname: this.nickname,
-      };
-      const { data } = await registerUser(userData);
-      
-      this.logMessage = `${data.username} 님이 가입되었습니다.`;
-      
-      // 가입 후 폼 초기화
-      this.initForm();
-    },
-    initForm() {
-      this.username = '';
-      this.password = '';
-      this.nickname = '';
-    },
-  },
+	name: 'SignupForm',
+	data() {
+		return {
+			email: '',
+			name: '',
+			password: '',
+			passwordConfirm: '',
+		};
+	},
+	methods: {
+		submitForm() {
+			var check = (this.email != null) && (this.name != null) && (this.password == this.passwordConfirm)
+			if(check){
+				alert("환영합니다." + this.name + "님!")
+				console.log("Sign up Success")
+				this.initForm()
+			}else{
+				alert("비밀번호를 확인해주세요")
+				this.initPassword()
+			}
+			console.log(check)
+			
+		},
+		goBack(){
+			this.$router.go(-1)
+			this.initForm()
+		},
+		initForm(){
+			this.email='';
+			this.name='';
+			this.password='';
+			this.passwordConfirm='';
+		},
+		initPassword(){
+			this.password='';
+			this.passwordConfirm='';
+		}
+	},
 };
 </script>
