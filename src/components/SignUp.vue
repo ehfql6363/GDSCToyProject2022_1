@@ -14,8 +14,8 @@
 				<input type="password" id="passwordConfirm" v-model="passwordConfirm" placeholder="비밀번호 확인"/>
 			</div>
 			<div>
-				<button type="submit">회원가입</button>
-				<button type = "button" @click="goBack" >취소</button>
+				<button type="submit">회원가입</button>  
+				<button type = "button" @click="goBack">취소</button>
 			</div>
 			
 		</form>
@@ -43,7 +43,9 @@ export default {
 				passowrd: this.passowrd,
 				passwordConfirm: this.passwordConfirm
 			};
-			// const { data } = awaitregisterUser(userData)
+			const { data } = await registerUser(userData);
+			console.log(data.user.id);
+
 			var check = (this.email != null) && (this.name != null) && (this.password == this.passwordConfirm);
 			
 			if(check){

@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@vue/cli": "^5.0.4",
+    "axios": "^0.27.2",
     "bootstrap": "^4.6.1",
     "bootstrap-vue": "^2.22.0",
     "buefy": "^0.9.21",

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>로그인 화면</div>
-    <form @submit.prevent="submitForm">
+    <form @submit.prevent="submitForm" class="login">
       <div>
 				<input type="text" id="id" v-model="id" placeholder="아이디"/>
 			</div>
@@ -13,7 +13,12 @@
         <router-link to="#">아이디/비밀번호 찾기</router-link>
       </div>
       <div>
-        <button type="submit">로그인</button>
+        <button 
+          :disabled="!id || !password"
+          type="submit"
+          >
+          로그인
+        </button>
       </div>
     </form>
   </div>
@@ -33,11 +38,26 @@ export default {
   },
   methods: {
     async submitForm(){
-      const userData = {
-        id: this.id,
-        password: this.password
-      };
-      
+      try{
+        const userData = {
+          id: this.id,
+          password: this.password
+        };
+        const {data} =  await loginUser(userData);
+        console.log(data.user.id);
+
+        this.$store.commit('setId', data.user.id);
+        this.$router.push('/');
+      } catch(e){
+        console.log(e.response.data);
+      } finally{
+        //페이지 초기화
+        this.initForm();
+      }
+    },
+    initForm(){
+      this.id = '';
+      this.password='';
     }
   },
 
