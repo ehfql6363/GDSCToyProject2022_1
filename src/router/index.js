@@ -27,6 +27,11 @@ const routes = [
     path: '/login',
     name: 'lonin',
     component: () => import('@/components/LogIn.vue')
+  },
+  {
+    path: '/infinite',
+    name: 'infinite',
+    component: () => import('@/components/InfiniteLoading.vue')
   }
 ]
 

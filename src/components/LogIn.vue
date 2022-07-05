@@ -9,7 +9,7 @@
 				<input type="password" id="password" v-model="password" placeholder="비밀번호"/>
 			</div>
       <div>
-        <router-link to="/signUp">회원 가입</router-link>  |  
+        <router-link to="/signup">회원 가입</router-link>  |  
         <router-link to="#">아이디/비밀번호 찾기</router-link>
       </div>
       <div>
