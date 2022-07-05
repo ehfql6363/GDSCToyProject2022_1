@@ -44,7 +44,7 @@ export default {
 				passwordConfirm: this.passwordConfirm
 			};
 			const { data } = await registerUser(userData);
-			console.log(data.user.id);
+			console.log(data.id);
 
 			var check = (this.email != null) && (this.name != null) && (this.password == this.passwordConfirm);
 			
