@@ -1,6 +1,5 @@
 <template>
   <div>
-    <nav></nav>
     <div>
       <b-form-input 
         type="text"
@@ -15,22 +14,27 @@
     </div>
     <div>
       <div>
-        <div v-if="show" ref="planWrapper" class="planWrapper">
-          <div v-for="(item, index) in items" :key="index">
-            {{item}}
-            <b-card
-            title="일정 제목"
-            img-src='@/assets/img/food.png'
-            img-alt="Image"
-            img-top
-            tag="article"
-            style="max-width: 20rem;"
-            class="mb-2">
-              <b-card-text>일정 내용?</b-card-text>
-              <b-button href="#" variant="primary">자세히 보기</b-button>
-            </b-card>
+        <table>
+          <div v-if="show" ref="planWrapper" class="planWrapper">
+          <div v-for="(idx) in items" :key="idx">
+            <tr>
+              <td v-for="(index) in 3" :key="index">
+                <b-card
+                title="일정 제목"
+                img-src='./date.png'
+                img-alt="Image"
+                img-top
+                tag="article"
+                style="max-width: 20rem;"
+                class="mb-2">
+                  <b-card-text>일정 내용?</b-card-text>
+                  <b-button href="#" variant="primary">자세히 보기</b-button>
+                </b-card>
+              </td>
+            </tr>
           </div>
         </div>
+        </table>
         <infinite-loading @infinite="infiniteHandler"></infinite-loading>
       </div>
     </div>
