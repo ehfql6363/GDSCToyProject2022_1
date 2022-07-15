@@ -44,10 +44,10 @@ export default {
           password: this.password
         };
         const {data} =  await loginUser(userData);
-        console.log(data.user.id);
+        console.log(data);
 
         this.$store.commit('setId', data.user.id);
-        this.$router.push('/');
+        // this.$router.push('/');
       } catch(e){
         console.log(e.response.data);
       } finally{

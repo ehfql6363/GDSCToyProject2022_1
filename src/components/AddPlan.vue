@@ -6,7 +6,7 @@
         </b-card-header>
         <b-collapse id="accordion-1" visible accordion="my-accordion" role="tabpanel">
             <b-card-body>
-                {{text}}
+                <kakao-map></kakao-map>
             </b-card-body>
         </b-collapse>
         </b-card>
@@ -90,7 +90,9 @@
 </template>
 
 <script>
+import KakaoMap from './KakaoMap.vue';
     export default {
+        components: { KakaoMap },
         data() {
             return {
                 text: '지도지도',

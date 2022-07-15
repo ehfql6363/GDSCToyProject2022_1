@@ -32,6 +32,11 @@ const routes = [
     path: '/infinite',
     name: 'infinite',
     component: () => import('@/components/InfiniteLoading.vue')
+  },
+  {
+    path: '/map',
+    name: 'map',
+    component: () => import('@/components/KakaoMap.vue')
   }
 ]
 

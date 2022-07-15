@@ -5,7 +5,7 @@
       <router-link to="/about">About</router-link> | 
       <router-link to="/signup">SignUp</router-link> | 
       <router-link to="/login">LogIn</router-link> | 
-      <router-link to="/infinite">InfiniteLoading</router-link>
+      <router-link to="/map">Map</router-link>
     </nav>
     <router-view/>
   </div>
