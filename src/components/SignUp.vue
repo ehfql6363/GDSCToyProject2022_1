@@ -2,16 +2,10 @@
 	<div class="container">
 		<form @submit.prevent="submitForm">
 			<div>
-				<input type="text" id="name" v-model="name" placeholder="이름"/>
-			</div>
-			<div>
-				<input type="text" id="id" v-model="id" placeholder="아이디"/>
+				<input type="text" id="email" v-model="email" placeholder="아이디"/>
 			</div>
 			<div>
 				<input type="password" id="password" v-model="password" placeholder="비밀번호"/>
-			</div>
-			<div>
-				<input type="password" id="passwordConfirm" v-model="passwordConfirm" placeholder="비밀번호 확인"/>
 			</div>
 			<div>
 				<button type="submit">회원가입</button>  
@@ -29,24 +23,20 @@ export default {
 	name: 'SignupForm',
 	data() {
 		return {
-			name: '',
-			id: '',
+			email: '',
 			password: '',
-			passwordConfirm: '',
 		};
 	},
 	methods: {
 		async submitForm() {
 			const userData = {
-				name: this.name,
-				id: this.id,
-				passowrd: this.passowrd,
-				passwordConfirm: this.passwordConfirm
+				email: this.email,
+				password: this.password,
 			};
 			const { data } = await registerUser(userData);
 			console.log(data);
 
-			var check = (this.email != null) && (this.name != null) && (this.password == this.passwordConfirm);
+			var check = (this.email != null) && (this.password != null);
 			
 			if(check){
 				alert("환영합니다." + this.name + "님!");
