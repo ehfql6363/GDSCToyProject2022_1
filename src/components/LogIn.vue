@@ -3,7 +3,7 @@
     <div>로그인 화면</div>
     <form @submit.prevent="submitForm" class="login">
       <div>
-				<input type="text" id="id" v-model="id" placeholder="아이디"/>
+				<input type="text" id="email" v-model="email" placeholder="아이디"/>
 			</div>
 			<div>
 				<input type="password" id="password" v-model="password" placeholder="비밀번호"/>
@@ -14,7 +14,7 @@
       </div>
       <div>
         <button 
-          :disabled="!id || !password"
+          :disabled="!email || !password"
           type="submit"
           >
           로그인
@@ -32,7 +32,7 @@ export default {
   name: 'LoginForm',
   data() {
     return{
-      id: '',
+      email: '',
       password: ''
     };
   },
@@ -40,15 +40,16 @@ export default {
     async submitForm(){
       try{
         const userData = {
-          id: this.id,
+          email: this.email,
           password: this.password
         };
         const {data} =  await loginUser(userData);
         console.log(data);
 
-        this.$store.commit('setId', data.user.id);
+        this.$store.commit('setEmail', data);
         // this.$router.push('/');
       } catch(e){
+        console.log('에러 진입');
         console.log(e.response.data);
       } finally{
         //페이지 초기화
@@ -56,7 +57,7 @@ export default {
       }
     },
     initForm(){
-      this.id = '';
+      this.email = '';
       this.password='';
     }
   },

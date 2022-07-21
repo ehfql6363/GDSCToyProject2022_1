@@ -5,19 +5,19 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    id: '',
+    email: '',
   },
   getters: {
     isLogin(state){
-      return state.id !== '';
+      return state.email !== '';
     }
   },
   mutations: {
-    setId(state, id){
-      state.id = id;
+    setEmail(state, email){
+      state.email = email;
     },
     clearId(state){
-      state.id = '';
+      state.email = '';
     }
   },
   actions: {

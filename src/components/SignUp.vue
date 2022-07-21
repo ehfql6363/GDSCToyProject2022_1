@@ -56,13 +56,10 @@ export default {
 		},
 		initForm(){
 			this.email='';
-			this.name='';
 			this.password='';
-			this.passwordConfirm='';
 		},
 		initPassword(){
 			this.password='';
-			this.passwordConfirm='';
 		}
 	},
 };
